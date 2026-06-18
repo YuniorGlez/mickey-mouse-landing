@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mickey Mouse - Landing Page</title>
+  <title>Pluto - Landing Page</title>
   <style>
     * {
       margin: 0;
@@ -19,6 +19,11 @@
     @keyframes twinkle {
       0%, 100% { opacity: 0.3; }
       50% { opacity: 1; }
+    }
+
+    @keyframes tailWag {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
     }
 
     body {
@@ -37,9 +42,9 @@
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 20% 50%, rgba(30, 20, 80, 0.3), transparent 60%),
-                  radial-gradient(ellipse at 80% 20%, rgba(80, 20, 30, 0.2), transparent 50%),
-                  radial-gradient(ellipse at 50% 80%, rgba(20, 40, 80, 0.2), transparent 50%);
+      background: radial-gradient(ellipse at 20% 50%, rgba(30, 60, 30, 0.3), transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(60, 40, 20, 0.2), transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(20, 40, 60, 0.2), transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
@@ -90,9 +95,9 @@
       text-transform: uppercase;
     }
 
-    h1 .yellow { color: #f5c518; }
+    h1 .orange { color: #e87c2a; }
     h1 .white { color: #fff; }
-    h1 .shadow { color: #8a6e0e; }
+    h1 .shadow { color: #8a5e0e; }
 
     .tagline {
       font-size: 1rem;
@@ -119,13 +124,13 @@
     }
 
     .hero .highlight {
-      color: #f5c518;
+      color: #e87c2a;
     }
 
     .quote {
       font-style: italic;
       color: #777;
-      border-left: 3px solid #f5c518;
+      border-left: 3px solid #e87c2a;
       padding-left: 1.5rem;
       margin: 2rem 0;
       text-align: left;
@@ -142,14 +147,14 @@
     .cta {
       display: inline-block;
       padding: 1rem 3rem;
-      background: linear-gradient(135deg, #f5c518, #d4a017);
+      background: linear-gradient(135deg, #e87c2a, #c0601a);
       color: #0a0a0f;
       font-size: 1.1rem;
       font-weight: 700;
       text-decoration: none;
       border-radius: 50px;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 30px rgba(245, 197, 24, 0.25);
+      box-shadow: 0 4px 30px rgba(232, 124, 42, 0.25);
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-top: 1rem;
@@ -157,7 +162,7 @@
 
     .cta:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 40px rgba(245, 197, 24, 0.4);
+      box-shadow: 0 6px 40px rgba(232, 124, 42, 0.4);
     }
 
     .timeline {
@@ -171,7 +176,7 @@
     .timeline h2 {
       text-align: center;
       font-size: 1.8rem;
-      color: #f5c518;
+      color: #e87c2a;
       margin-bottom: 2.5rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -195,13 +200,13 @@
     }
 
     .timeline-item:hover {
-      background: rgba(245, 197, 24, 0.05);
+      background: rgba(232, 124, 42, 0.05);
     }
 
     .timeline-year {
       font-size: 1.3rem;
       font-weight: 800;
-      color: #f5c518;
+      color: #e87c2a;
       min-width: 70px;
     }
 
@@ -238,7 +243,7 @@
 
     .feature-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(245, 197, 24, 0.3);
+      border-color: rgba(232, 124, 42, 0.3);
     }
 
     .feature-card .icon {
@@ -248,7 +253,7 @@
 
     .feature-card h3 {
       font-size: 1rem;
-      color: #f5c518;
+      color: #e87c2a;
       margin-bottom: 0.5rem;
     }
 
@@ -270,7 +275,7 @@
 
     .disney-badge span {
       padding: 0.4rem 1.2rem;
-      border: 1px solid rgba(245, 197, 24, 0.15);
+      border: 1px solid rgba(232, 124, 42, 0.15);
       border-radius: 20px;
       font-size: 0.8rem;
       color: #666;
@@ -278,8 +283,8 @@
     }
 
     .disney-badge span:hover {
-      border-color: rgba(245, 197, 24, 0.4);
-      color: #f5c518;
+      border-color: rgba(232, 124, 42, 0.4);
+      color: #e87c2a;
     }
 
     footer {
@@ -309,127 +314,128 @@
     <div class="logo">
       <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <radialGradient id="gBody" cx="50%" cy="40%" r="50%">
-            <stop offset="0%" stop-color="#2a2a2a"/>
-            <stop offset="100%" stop-color="#111"/>
+          <radialGradient id="gBody" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e87c2a"/>
+            <stop offset="100%" stop-color="#a05010"/>
           </radialGradient>
         </defs>
-        <circle cx="60" cy="65" r="38" fill="url(#gBody)"/>
-        <circle cx="60" cy="50" r="30" fill="url(#gBody)"/>
-        <circle cx="32" cy="38" r="24" fill="#111"/>
-        <circle cx="88" cy="38" r="24" fill="#111"/>
-        <circle cx="32" cy="38" r="18" fill="#1a1a1a"/>
-        <circle cx="88" cy="38" r="18" fill="#1a1a1a"/>
-        <ellipse cx="60" cy="92" rx="16" ry="10" fill="none" stroke="#f5c518" stroke-width="1.5" opacity="0.3"/>
-        <path d="M45 78 Q52 86 60 78 Q68 86 75 78" fill="none" stroke="#f5c518" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+        <ellipse cx="60" cy="65" rx="32" ry="28" fill="url(#gBody)"/>
+        <circle cx="60" cy="45" r="26" fill="#e87c2a"/>
+        <ellipse cx="52" cy="38" rx="16" ry="22" fill="#d4a017" transform="rotate(-15 52 38)"/>
+        <ellipse cx="68" cy="38" rx="16" ry="22" fill="#d4a017" transform="rotate(15 68 38)"/>
+        <circle cx="60" cy="43" r="6" fill="#222"/>
+        <circle cx="60" cy="43" r="3" fill="#fff"/>
+        <ellipse cx="60" cy="80" rx="6" ry="12" fill="#e87c2a"/>
+        <circle cx="60" cy="55" r="4" fill="#222"/>
+        <path d="M36 88 Q30 96 26 100 Q28 104 34 102 Q38 98 40 92" fill="#e87c2a" animation="tailWag 1s ease-in-out infinite"/>
+        <path d="M56 50 Q60 53 64 50" fill="none" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </div>
-    <h1><span class="yellow">Mickey</span> <span class="white">Mouse</span></h1>
+    <h1><span class="orange">Pluto</span></h1>
     <p class="tagline">The Walt Disney Company</p>
   </header>
 
   <section class="hero">
     <p>
-      <span class="highlight">— "Oh boy!" —</span>
+      <span class="highlight">— ¡Guau, guau! —</span>
     </p>
     <p>
-      Creado por <span class="highlight">Walt Disney</span> y <span class="highlight">Ub Iwerks</span> en 1928,
-      Mickey Mouse debutó en <span class="highlight">Steamboat Willie</span>, el primer corto animado 
-      con sonido sincronizado. Desde entonces, este pequeño ratón de orejas redondas, zapatos amarillos 
-      y guantes blancos se convirtió en el embajador oficial de Disney y en uno de los personajes 
-      más icónicos de la historia.
+      <span class="highlight">Pluto</span> es el fiel amigo canino de <span class="highlight">Mickey Mouse</span>,
+      creado por <span class="highlight">Walt Disney</span> en 1930. A diferencia de otros personajes
+      Disney como Goofy, <span class="highlight">Pluto no habla</span> — se comunica con ladridos,
+      gemidos y movimientos de cola, lo que lo hace único y entrañable.
     </p>
     <p>
-      Su novia <span class="highlight">Minnie Mouse</span>, su amigo el <span class="highlight">Pato Donald</span>, 
-      su leal <span class="highlight">Pluto</span> y su inseparable <span class="highlight">Goofy</span> 
-      conforman la pandilla que ha hecho reír a millones en todo el mundo.
+      Es un perro <span class="highlight">sabueso</span> de color naranja claro con orejas caídas
+      negras y un collar rojo. Su personalidad curiosa, leal y algo torpe lo ha convertido
+      en el compañero perfecto de Mickey, <span class="highlight">Minnie</span> y toda la pandilla.
     </p>
 
     <div class="quote">
-      "I only hope that we never lose sight of one thing — that it was all started by a mouse."
-      <cite>— Walt Disney</cite>
+      "Pluto is the only Disney character that doesn't speak — and that's what makes him so expressive."
+      <cite>— Animadores de Disney</cite>
     </div>
 
     <p>
-      Mickey ha aparecido en más de <span class="highlight">130 películas</span>, videojuegos, 
-      parques temáticos como <span class="highlight">Disneyland</span> y <span class="highlight">Disney World</span>, 
-      series de televisión y todo tipo de merchandising. Es la estrella con estrella en el 
-      <span class="highlight">Paseo de la Fama de Hollywood</span>.
+      Ha protagonizado más de <span class="highlight">80 cortometrajes</span> propios, incluyendo
+      el ganador del Oscar <span class="highlight">"Lend a Paw"</span> (1941). Su lealtad inquebrantable
+      y sus aventuras cotidianas — persiguiendo ardillas, olfateando pistas o metiéndose en líos —
+      lo han hecho querido por niños y adultos de todo el mundo.
     </p>
 
-    <a href="#" class="cta">Explorar el mundo de Mickey</a>
+    <a href="#" class="cta">Conoce a Pluto</a>
   </section>
 
   <section class="timeline">
     <h2>✦ Línea del tiempo ✦</h2>
     <div class="timeline-grid">
       <div class="timeline-item">
-        <span class="timeline-year">1928</span>
-        <span class="timeline-text"><strong>Steamboat Willie</strong> — Primer corto con sonido sincronizado. Nace Mickey.</span>
+        <span class="timeline-year">1930</span>
+        <span class="timeline-text"><strong>The Chain Gang</strong> — Primera aparición de Pluto como perro cazador.</span>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">1929</span>
-        <span class="timeline-text"><strong>The Mickey Mouse Club</strong> — Primer club de fans oficial.</span>
+        <span class="timeline-year">1931</span>
+        <span class="timeline-text"><strong>The Moose Hunt</strong> — Pluto se convierte en la mascota oficial de Mickey.</span>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">1935</span>
-        <span class="timeline-text"><strong>The Band Concert</strong> — Mickey en tecnicolor por primera vez.</span>
+        <span class="timeline-year">1941</span>
+        <span class="timeline-text"><strong>Lend a Paw</strong> — Gana el Oscar al Mejor Corto Animado.</span>
       </div>
       <div class="timeline-item">
         <span class="timeline-year">1955</span>
-        <span class="timeline-text"><strong>Disneyland</strong> — Mickey inaugura el parque temático en California.</span>
+        <span class="timeline-text"><strong>Disneyland</strong> — Pluto aparece en la inauguración del parque.</span>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">1978</span>
-        <span class="timeline-text"><strong>50 aniversario</strong> — Primer personaje de dibujos con estrella en Hollywood.</span>
+        <span class="timeline-year">1990</span>
+        <span class="timeline-text"><strong>Disney Channel</strong> — Pluto protagoniza su propia serie de cortos.</span>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">2003</span>
-        <span class="timeline-text"><strong>Kingdom Hearts</strong> — Mickey aparece en el crossover de Square Enix.</span>
+        <span class="timeline-year">2010</span>
+        <span class="timeline-text"><strong>Kingdom Hearts</strong> — Pluto aparece en el mundo de Disney.</span>
       </div>
       <div class="timeline-item">
         <span class="timeline-year">2023</span>
-        <span class="timeline-text"><strong>Steamboat Willie pasa a dominio público</strong> — Nueva era para el personaje.</span>
+        <span class="timeline-text"><strong>Mickey & Friends</strong> — Pluto sigue siendo el perro más querido de Disney.</span>
       </div>
     </div>
   </section>
 
   <div class="disney-badge">
+    <span>Mickey Mouse</span>
+    <span>Minnie Mouse</span>
+    <span>Goofy</span>
+    <span>Donald Duck</span>
     <span>Disneyland</span>
-    <span>Magic Kingdom</span>
-    <span>Disney Channel</span>
     <span>Disney+</span>
-    <span>Kingdom Hearts</span>
-    <span>Mickey & Friends</span>
   </div>
 
   <section class="features">
     <div class="feature-card">
-      <div class="icon">🎞️</div>
-      <h3>Steamboat Willie</h3>
-      <p>El corto que lo inició todo. Primera animación con sonido sincronizado de la historia.</p>
+      <div class="icon">🐾</div>
+      <h3>No habla</h3>
+      <p>Único personaje principal de Disney que no dice una palabra. Su lenguaje es puro corazón.</p>
     </div>
     <div class="feature-card">
-      <div class="icon">⭐</div>
-      <h3>Paseo de la Fama</h3>
-      <p>Primer personaje animado en recibir una estrella en Hollywood Boulevard (1978).</p>
+      <div class="icon">🏆</div>
+      <h3>Oscar 1941</h3>
+      <p>Ganó el premio de la Academia al Mejor Corto Animado con "Lend a Paw".</p>
     </div>
     <div class="feature-card">
       <div class="icon">🎡</div>
       <h3>Embajador Disney</h3>
-      <p>Mascota oficial de Disneyland, Disney World, Tokyo Disney y París Disney.</p>
+      <p>Aparece en todos los parques Disney como personaje icónico y fotografiado.</p>
     </div>
     <div class="feature-card">
-      <div class="icon">👕</div>
-      <h3>Merchandising</h3>
-      <p>Miles de productos: ropa, juguetes, videojuegos y coleccionables en todo el mundo.</p>
+      <div class="icon">🦴</div>
+      <h3>Más de 80 cortos</h3>
+      <p>Una filmografía propia que lo consagra como uno de los grandes de la animación.</p>
     </div>
   </section>
 
   <div class="castillo">🏰</div>
 
   <footer>
-    <p>© 2026 — Fan page no oficial. Hecho con ❤️ para celebrar el legado de Mickey Mouse.</p>
+    <p>© 2026 — Fan page no oficial. Hecho con ❤️ para celebrar a Pluto, el mejor amigo de Mickey.</p>
     <p style="margin-top: 0.5rem; color: #222;">"All our dreams can come true if we have the courage to pursue them." — Walt Disney</p>
   </footer>
 
