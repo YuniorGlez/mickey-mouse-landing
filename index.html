@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mickey Mouse - Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(30, 20, 80, 0.3), transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(80, 20, 30, 0.2), transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(20, 40, 80, 0.2), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #f5c518;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 .yellow { color: #f5c518; }
+    h1 .white { color: #fff; }
+    h1 .shadow { color: #8a6e0e; }
+
+    .tagline {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      max-width: 800px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #999;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .highlight {
+      color: #f5c518;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #777;
+      border-left: 3px solid #f5c518;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+      font-size: 1.05rem;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, #f5c518, #d4a017);
+      color: #0a0a0f;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 30px rgba(245, 197, 24, 0.25);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 40px rgba(245, 197, 24, 0.4);
+    }
+
+    .timeline {
+      max-width: 900px;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .timeline h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #f5c518;
+      margin-bottom: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .timeline-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+
+    .timeline-item:hover {
+      background: rgba(245, 197, 24, 0.05);
+    }
+
+    .timeline-year {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #f5c518;
+      min-width: 70px;
+    }
+
+    .timeline-text {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    .timeline-text strong {
+      color: #fff;
+    }
+
+    .features {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2rem 1rem 4rem;
+      max-width: 1000px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      width: 220px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 197, 24, 0.3);
+    }
+
+    .feature-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      color: #f5c518;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .disney-badge {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .disney-badge span {
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(245, 197, 24, 0.15);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .disney-badge span:hover {
+      border-color: rgba(245, 197, 24, 0.4);
+      color: #f5c518;
+    }
+
+    footer {
+      padding: 2.5rem;
+      color: #333;
+      font-size: 0.8rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .castillo {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      opacity: 0.15;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="gBody" cx="50%" cy="40%" r="50%">
+            <stop offset="0%" stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#111"/>
+          </radialGradient>
+        </defs>
+        <circle cx="60" cy="65" r="38" fill="url(#gBody)"/>
+        <circle cx="60" cy="50" r="30" fill="url(#gBody)"/>
+        <circle cx="32" cy="38" r="24" fill="#111"/>
+        <circle cx="88" cy="38" r="24" fill="#111"/>
+        <circle cx="32" cy="38" r="18" fill="#1a1a1a"/>
+        <circle cx="88" cy="38" r="18" fill="#1a1a1a"/>
+        <ellipse cx="60" cy="92" rx="16" ry="10" fill="none" stroke="#f5c518" stroke-width="1.5" opacity="0.3"/>
+        <path d="M45 78 Q52 86 60 78 Q68 86 75 78" fill="none" stroke="#f5c518" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+    <h1><span class="yellow">Mickey</span> <span class="white">Mouse</span></h1>
+    <p class="tagline">The Walt Disney Company</p>
+  </header>
+
+  <section class="hero">
+    <p>
+      <span class="highlight">— "Oh boy!" —</span>
+    </p>
+    <p>
+      Creado por <span class="highlight">Walt Disney</span> y <span class="highlight">Ub Iwerks</span> en 1928,
+      Mickey Mouse debutó en <span class="highlight">Steamboat Willie</span>, el primer corto animado 
+      con sonido sincronizado. Desde entonces, este pequeño ratón de orejas redondas, zapatos amarillos 
+      y guantes blancos se convirtió en el embajador oficial de Disney y en uno de los personajes 
+      más icónicos de la historia.
+    </p>
+    <p>
+      Su novia <span class="highlight">Minnie Mouse</span>, su amigo el <span class="highlight">Pato Donald</span>, 
+      su leal <span class="highlight">Pluto</span> y su inseparable <span class="highlight">Goofy</span> 
+      conforman la pandilla que ha hecho reír a millones en todo el mundo.
+    </p>
+
+    <div class="quote">
+      "I only hope that we never lose sight of one thing — that it was all started by a mouse."
+      <cite>— Walt Disney</cite>
+    </div>
+
+    <p>
+      Mickey ha aparecido en más de <span class="highlight">130 películas</span>, videojuegos, 
+      parques temáticos como <span class="highlight">Disneyland</span> y <span class="highlight">Disney World</span>, 
+      series de televisión y todo tipo de merchandising. Es la estrella con estrella en el 
+      <span class="highlight">Paseo de la Fama de Hollywood</span>.
+    </p>
+
+    <a href="#" class="cta">Explorar el mundo de Mickey</a>
+  </section>
+
+  <section class="timeline">
+    <h2>✦ Línea del tiempo ✦</h2>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <span class="timeline-year">1928</span>
+        <span class="timeline-text"><strong>Steamboat Willie</strong> — Primer corto con sonido sincronizado. Nace Mickey.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1929</span>
+        <span class="timeline-text"><strong>The Mickey Mouse Club</strong> — Primer club de fans oficial.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1935</span>
+        <span class="timeline-text"><strong>The Band Concert</strong> — Mickey en tecnicolor por primera vez.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1955</span>
+        <span class="timeline-text"><strong>Disneyland</strong> — Mickey inaugura el parque temático en California.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">1978</span>
+        <span class="timeline-text"><strong>50 aniversario</strong> — Primer personaje de dibujos con estrella en Hollywood.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2003</span>
+        <span class="timeline-text"><strong>Kingdom Hearts</strong> — Mickey aparece en el crossover de Square Enix.</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2023</span>
+        <span class="timeline-text"><strong>Steamboat Willie pasa a dominio público</strong> — Nueva era para el personaje.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="disney-badge">
+    <span>Disneyland</span>
+    <span>Magic Kingdom</span>
+    <span>Disney Channel</span>
+    <span>Disney+</span>
+    <span>Kingdom Hearts</span>
+    <span>Mickey & Friends</span>
+  </div>
+
+  <section class="features">
+    <div class="feature-card">
+      <div class="icon">🎞️</div>
+      <h3>Steamboat Willie</h3>
+      <p>El corto que lo inició todo. Primera animación con sonido sincronizado de la historia.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⭐</div>
+      <h3>Paseo de la Fama</h3>
+      <p>Primer personaje animado en recibir una estrella en Hollywood Boulevard (1978).</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎡</div>
+      <h3>Embajador Disney</h3>
+      <p>Mascota oficial de Disneyland, Disney World, Tokyo Disney y París Disney.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">👕</div>
+      <h3>Merchandising</h3>
+      <p>Miles de productos: ropa, juguetes, videojuegos y coleccionables en todo el mundo.</p>
+    </div>
+  </section>
+
+  <div class="castillo">🏰</div>
+
+  <footer>
+    <p>© 2026 — Fan page no oficial. Hecho con ❤️ para celebrar el legado de Mickey Mouse.</p>
+    <p style="margin-top: 0.5rem; color: #222;">"All our dreams can come true if we have the courage to pursue them." — Walt Disney</p>
+  </footer>
+
+  <script>
+    for (let i = 0; i < 60; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 5 + 's';
+      star.style.width = star.style.height = (1 + Math.random() * 3) + 'px';
+      document.getElementById('stars').appendChild(star);
+    }
+  </script>
+</body>
+</html>
